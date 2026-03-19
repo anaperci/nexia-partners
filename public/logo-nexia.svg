@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" fill="none">
+  <!-- X icon -->
+  <path d="M10 5 L35 50 L10 95 L25 95 L45 60 L65 95 L80 95 L55 50 L80 5 L65 5 L45 40 L25 5 Z" fill="#2D1B4E"/>
+  <!-- Sparkle on X -->
+  <path d="M45 48 L47 42 L49 48 L55 50 L49 52 L47 58 L45 52 L39 50 Z" fill="#E8B931"/>
+  <!-- nexia text -->
+  <text x="95" y="75" font-family="sans-serif" font-size="68" font-weight="300" fill="#2D1B4E" letter-spacing="-1">
+    nex<tspan font-weight="600">ia</tspan> lab
+  </text>
+  <!-- Sparkle top right -->
+  <path d="M485 12 L487 6 L489 12 L495 14 L489 16 L487 22 L485 16 L479 14 Z" fill="#E8B931"/>
+  <!-- Sparkle small -->
+  <path d="M495 8 L496 5 L497 8 L500 9 L497 10 L496 13 L495 10 L492 9 Z" fill="#E8B931"/>
+</svg>
