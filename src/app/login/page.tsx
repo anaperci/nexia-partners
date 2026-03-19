@@ -35,11 +35,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: '#0c0e14' }}>
+    <div className="min-h-screen flex items-center justify-center" style={{ background: '#f4f5f7' }}>
       <div className="w-full max-w-md rounded-2xl shadow-2xl border p-8" style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <Image src="/logo-nexia.svg" alt="NexIA Lab" width={200} height={50} priority />
+          <Image src="/logo-nexia.png" alt="NexIA Lab" width={200} height={50} priority />
         </div>
 
         {/* Título */}

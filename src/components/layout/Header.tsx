@@ -8,7 +8,7 @@ export function Header({ title, description, children }: HeaderProps) {
   return (
     <div className="flex items-center justify-between mb-8">
       <div>
-        <h1 className="text-2xl font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#e8eaf0' }}>
+        <h1 className="text-2xl font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
           {title}
         </h1>
         {description && (

@@ -24,11 +24,11 @@ export default async function DashboardPage() {
   const recentes = all.slice(0, 5)
 
   const cards = [
-    { label: "Total", value: total, icon: Briefcase, color: "#4f8ef7", bg: "rgba(79,142,247,0.1)" },
-    { label: "Ativas", value: ativos, icon: CheckCircle, color: "#22c55e", bg: "rgba(34,197,94,0.1)" },
-    { label: "Vencendo", value: vencendo, icon: AlertTriangle, color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-    { label: "Expiradas", value: expirados, icon: XCircle, color: "#ef4444", bg: "rgba(239,68,68,0.1)" },
-    { label: "Parceiros", value: totalParceiros, icon: Users, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)" },
+    { label: "Total", value: total, icon: Briefcase, color: "#46347F", bg: "rgba(70,52,127,0.08)" },
+    { label: "Ativas", value: ativos, icon: CheckCircle, color: "#22c55e", bg: "rgba(34,197,94,0.08)" },
+    { label: "Vencendo", value: vencendo, icon: AlertTriangle, color: "#f59e0b", bg: "rgba(245,158,11,0.08)" },
+    { label: "Expiradas", value: expirados, icon: XCircle, color: "#ef4444", bg: "rgba(239,68,68,0.08)" },
+    { label: "Parceiros", value: totalParceiros, icon: Users, color: "#8b5cf6", bg: "rgba(139,92,246,0.08)" },
   ]
 
   return (
@@ -41,7 +41,7 @@ export default async function DashboardPage() {
           <div
             key={card.label}
             className="rounded-xl border p-5"
-            style={{ background: '#13151e', borderColor: '#252836' }}
+            style={{ background: '#ffffff', borderColor: '#e5e7eb' }}
           >
             <div className="flex items-center justify-between mb-3">
               <span className="text-sm" style={{ color: '#6b7280' }}>{card.label}</span>
@@ -49,7 +49,7 @@ export default async function DashboardPage() {
                 <card.icon className="h-4 w-4" style={{ color: card.color }} />
               </div>
             </div>
-            <p className="text-3xl font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#e8eaf0' }}>
+            <p className="text-3xl font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
               {card.value}
             </p>
           </div>
@@ -57,23 +57,19 @@ export default async function DashboardPage() {
       </div>
 
       {/* Tabela de oportunidades recentes */}
-      <div className="rounded-xl border" style={{ background: '#13151e', borderColor: '#252836' }}>
-        <div className="p-5 border-b flex items-center justify-between" style={{ borderColor: '#252836' }}>
-          <h2 className="text-lg font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#e8eaf0' }}>
+      <div className="rounded-xl border" style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
+        <div className="p-5 border-b flex items-center justify-between" style={{ borderColor: '#e5e7eb' }}>
+          <h2 className="text-lg font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
             Oportunidades Recentes
           </h2>
-          <Link
-            href="/oportunidades"
-            className="text-sm hover:underline"
-            style={{ color: '#4f8ef7' }}
-          >
+          <Link href="/oportunidades" className="text-sm hover:underline" style={{ color: '#46347F' }}>
             Ver todas →
           </Link>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr style={{ borderColor: '#252836' }} className="border-b">
+              <tr style={{ borderColor: '#e5e7eb' }} className="border-b">
                 <th className="text-left p-4 font-medium" style={{ color: '#6b7280' }}>Título</th>
                 <th className="text-left p-4 font-medium" style={{ color: '#6b7280' }}>Parceiro</th>
                 <th className="text-left p-4 font-medium" style={{ color: '#6b7280' }}>Órgão/Empresa</th>
@@ -90,13 +86,13 @@ export default async function DashboardPage() {
                 </tr>
               ) : (
                 recentes.map((op) => (
-                  <tr key={op.id} className="border-b hover:bg-white/5 transition-colors" style={{ borderColor: '#252836' }}>
+                  <tr key={op.id} className="border-b hover:bg-gray-50 transition-colors" style={{ borderColor: '#e5e7eb' }}>
                     <td className="p-4">
-                      <Link href={`/oportunidades/${op.id}`} className="hover:underline" style={{ color: '#e8eaf0' }}>
+                      <Link href={`/oportunidades/${op.id}`} className="hover:underline" style={{ color: '#111827' }}>
                         {op.titulo}
                       </Link>
                     </td>
-                    <td className="p-4" style={{ color: '#e8eaf0' }}>{op.parceiro_nome}</td>
+                    <td className="p-4" style={{ color: '#111827' }}>{op.parceiro_nome}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{op.orgao_empresa}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{formatDate(op.data_validade)}</td>
                     <td className="p-4"><StatusBadge status={op.status} /></td>

@@ -55,8 +55,8 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
     }
   }
 
-  const inputStyle = { background: '#1a1d2a', color: '#e8eaf0' }
-  const inputClass = "border-[#252836] focus:border-[#4f8ef7]"
+  const inputStyle = { background: '#f9fafb', color: '#111827' }
+  const inputClass = "border-[#e5e7eb] focus:border-[#46347F]"
 
   return (
     <div>
@@ -64,32 +64,32 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
       <div className="mb-6">
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button style={{ background: '#4f8ef7', color: '#fff' }}>
+            <Button style={{ background: '#46347F', color: '#fff' }}>
               <Plus className="mr-2 h-4 w-4" /> Novo Parceiro
             </Button>
           </DialogTrigger>
-          <DialogContent style={{ background: '#13151e', borderColor: '#252836' }}>
+          <DialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
             <DialogHeader>
-              <DialogTitle style={{ color: '#e8eaf0', fontFamily: 'Syne, sans-serif' }}>Cadastrar Parceiro</DialogTitle>
+              <DialogTitle style={{ color: '#111827', fontFamily: 'Syne, sans-serif' }}>Cadastrar Parceiro</DialogTitle>
             </DialogHeader>
             <form onSubmit={handleCreate} className="space-y-4 mt-4">
               <div className="space-y-2">
-                <Label style={{ color: '#e8eaf0' }}>Nome *</Label>
+                <Label style={{ color: '#111827' }}>Nome *</Label>
                 <Input value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} placeholder="Nome do parceiro" className={inputClass} style={inputStyle} />
               </div>
               <div className="space-y-2">
-                <Label style={{ color: '#e8eaf0' }}>Email</Label>
+                <Label style={{ color: '#111827' }}>Email</Label>
                 <Input value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} type="email" placeholder="email@exemplo.com" className={inputClass} style={inputStyle} />
               </div>
               <div className="space-y-2">
-                <Label style={{ color: '#e8eaf0' }}>Telefone</Label>
+                <Label style={{ color: '#111827' }}>Telefone</Label>
                 <Input value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })} placeholder="(00) 00000-0000" className={inputClass} style={inputStyle} />
               </div>
               <div className="space-y-2">
-                <Label style={{ color: '#e8eaf0' }}>Empresa</Label>
+                <Label style={{ color: '#111827' }}>Empresa</Label>
                 <Input value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} placeholder="Nome da empresa" className={inputClass} style={inputStyle} />
               </div>
-              <Button type="submit" disabled={loading} className="w-full" style={{ background: '#4f8ef7', color: '#fff' }}>
+              <Button type="submit" disabled={loading} className="w-full" style={{ background: '#46347F', color: '#fff' }}>
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Plus className="mr-2 h-4 w-4" />}
                 Cadastrar
               </Button>
@@ -99,11 +99,11 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
       </div>
 
       {/* Tabela */}
-      <div className="rounded-xl border overflow-hidden" style={{ background: '#13151e', borderColor: '#252836' }}>
+      <div className="rounded-xl border overflow-hidden" style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b" style={{ borderColor: '#252836' }}>
+              <tr className="border-b" style={{ borderColor: '#e5e7eb' }}>
                 <th className="text-left p-4 font-medium" style={{ color: '#6b7280' }}>Nome</th>
                 <th className="text-left p-4 font-medium" style={{ color: '#6b7280' }}>Email</th>
                 <th className="text-left p-4 font-medium" style={{ color: '#6b7280' }}>Telefone</th>
@@ -121,8 +121,8 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
                 </tr>
               ) : (
                 parceiros.map((p) => (
-                  <tr key={p.id} className="border-b hover:bg-white/5 transition-colors" style={{ borderColor: '#252836' }}>
-                    <td className="p-4 font-medium" style={{ color: '#e8eaf0' }}>{p.nome}</td>
+                  <tr key={p.id} className="border-b hover:bg-gray-50 transition-colors" style={{ borderColor: '#e5e7eb' }}>
+                    <td className="p-4 font-medium" style={{ color: '#111827' }}>{p.nome}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{p.email || "—"}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{p.telefone || "—"}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{p.empresa || "—"}</td>
@@ -138,15 +138,15 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
                             <Trash2 className="h-4 w-4 hover:text-red-400 transition-colors" style={{ color: '#6b7280' }} />
                           </button>
                         </AlertDialogTrigger>
-                        <AlertDialogContent style={{ background: '#13151e', borderColor: '#252836' }}>
+                        <AlertDialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
                           <AlertDialogHeader>
-                            <AlertDialogTitle style={{ color: '#e8eaf0' }}>Confirmar exclusão</AlertDialogTitle>
+                            <AlertDialogTitle style={{ color: '#111827' }}>Confirmar exclusão</AlertDialogTitle>
                             <AlertDialogDescription style={{ color: '#6b7280' }}>
                               Excluir parceiro &quot;{p.nome}&quot;? As oportunidades vinculadas não serão excluídas.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel className="border-[#252836]" style={{ color: '#e8eaf0', background: 'transparent' }}>Cancelar</AlertDialogCancel>
+                            <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>Cancelar</AlertDialogCancel>
                             <AlertDialogAction onClick={() => handleDelete(p.id)} style={{ background: '#ef4444', color: '#fff' }}>Excluir</AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>

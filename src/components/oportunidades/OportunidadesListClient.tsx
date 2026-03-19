@@ -78,15 +78,15 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
             placeholder="Buscar por título, parceiro, órgão..."
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
-            className="pl-10 border-[#252836]"
-            style={{ background: '#1a1d2a', color: '#e8eaf0' }}
+            className="pl-10 border-[#e5e7eb]"
+            style={{ background: '#f9fafb', color: '#111827' }}
           />
         </div>
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
           className="rounded-lg border px-3 py-2 text-sm"
-          style={{ background: '#1a1d2a', color: '#e8eaf0', borderColor: '#252836' }}
+          style={{ background: '#f9fafb', color: '#111827', borderColor: '#e5e7eb' }}
         >
           <option value="todos">Todos os status</option>
           <option value="ativo">Ativo</option>
@@ -97,7 +97,7 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
           value={parceiroFilter}
           onChange={(e) => setParceiroFilter(e.target.value)}
           className="rounded-lg border px-3 py-2 text-sm"
-          style={{ background: '#1a1d2a', color: '#e8eaf0', borderColor: '#252836' }}
+          style={{ background: '#f9fafb', color: '#111827', borderColor: '#e5e7eb' }}
         >
           <option value="todos">Todos os parceiros</option>
           {parceiros.map((p) => (
@@ -107,11 +107,11 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
       </div>
 
       {/* Tabela */}
-      <div className="rounded-xl border overflow-hidden" style={{ background: '#13151e', borderColor: '#252836' }}>
+      <div className="rounded-xl border overflow-hidden" style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b" style={{ borderColor: '#252836' }}>
+              <tr className="border-b" style={{ borderColor: '#e5e7eb' }}>
                 {([
                   { key: "titulo" as SortKey, label: "Título" },
                   { key: "parceiro_nome" as SortKey, label: "Parceiro" },
@@ -140,9 +140,9 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
                 </tr>
               ) : (
                 filtered.map((op) => (
-                  <tr key={op.id} className="border-b hover:bg-white/5 transition-colors" style={{ borderColor: '#252836' }}>
-                    <td className="p-4" style={{ color: '#e8eaf0' }}>{op.titulo}</td>
-                    <td className="p-4" style={{ color: '#e8eaf0' }}>{op.parceiro_nome}</td>
+                  <tr key={op.id} className="border-b hover:bg-gray-50 transition-colors" style={{ borderColor: '#e5e7eb' }}>
+                    <td className="p-4" style={{ color: '#111827' }}>{op.titulo}</td>
+                    <td className="p-4" style={{ color: '#111827' }}>{op.parceiro_nome}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{op.orgao_empresa}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{formatDate(op.data_validade)}</td>
                     <td className="p-4"><StatusBadge status={op.status} /></td>
@@ -160,15 +160,15 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
                               <Trash2 className="h-4 w-4 hover:text-red-400 transition-colors" style={{ color: '#6b7280' }} />
                             </button>
                           </AlertDialogTrigger>
-                          <AlertDialogContent style={{ background: '#13151e', borderColor: '#252836' }}>
+                          <AlertDialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
                             <AlertDialogHeader>
-                              <AlertDialogTitle style={{ color: '#e8eaf0' }}>Confirmar exclusão</AlertDialogTitle>
+                              <AlertDialogTitle style={{ color: '#111827' }}>Confirmar exclusão</AlertDialogTitle>
                               <AlertDialogDescription style={{ color: '#6b7280' }}>
                                 Tem certeza que deseja excluir &quot;{op.titulo}&quot;? Esta ação não pode ser desfeita.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel className="border-[#252836]" style={{ color: '#e8eaf0', background: 'transparent' }}>Cancelar</AlertDialogCancel>
+                              <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>Cancelar</AlertDialogCancel>
                               <AlertDialogAction onClick={() => handleDelete(op.id)} style={{ background: '#ef4444', color: '#fff' }}>Excluir</AlertDialogAction>
                             </AlertDialogFooter>
                           </AlertDialogContent>

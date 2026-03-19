@@ -43,10 +43,10 @@ export function OportunidadeDetalhe({ oportunidade }: { oportunidade: Oportunida
   return (
     <>
       <Header title={oportunidade.titulo} description="Detalhes da oportunidade">
-        <Button variant="outline" onClick={() => router.push("/oportunidades")} className="border-[#252836]" style={{ color: '#e8eaf0', background: 'transparent' }}>
+        <Button variant="outline" onClick={() => router.push("/oportunidades")} className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Voltar
         </Button>
-        <Button onClick={() => router.push(`/oportunidades/${oportunidade.id}?edit=true`)} style={{ background: '#4f8ef7', color: '#fff' }}>
+        <Button onClick={() => router.push(`/oportunidades/${oportunidade.id}?edit=true`)} style={{ background: '#46347F', color: '#fff' }}>
           <Pencil className="mr-2 h-4 w-4" /> Editar
         </Button>
         <AlertDialog>
@@ -55,22 +55,22 @@ export function OportunidadeDetalhe({ oportunidade }: { oportunidade: Oportunida
               <Trash2 className="mr-2 h-4 w-4" /> Excluir
             </Button>
           </AlertDialogTrigger>
-          <AlertDialogContent style={{ background: '#13151e', borderColor: '#252836' }}>
+          <AlertDialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
             <AlertDialogHeader>
-              <AlertDialogTitle style={{ color: '#e8eaf0' }}>Confirmar exclusão</AlertDialogTitle>
+              <AlertDialogTitle style={{ color: '#111827' }}>Confirmar exclusão</AlertDialogTitle>
               <AlertDialogDescription style={{ color: '#6b7280' }}>
                 Tem certeza que deseja excluir esta oportunidade? Esta ação não pode ser desfeita.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel className="border-[#252836]" style={{ color: '#e8eaf0', background: 'transparent' }}>Cancelar</AlertDialogCancel>
+              <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>Cancelar</AlertDialogCancel>
               <AlertDialogAction onClick={handleDelete} style={{ background: '#ef4444', color: '#fff' }}>Excluir</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
       </Header>
 
-      <div className="rounded-xl border p-6" style={{ background: '#13151e', borderColor: '#252836' }}>
+      <div className="rounded-xl border p-6" style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
         <div className="mb-4">
           <StatusBadge status={oportunidade.status} />
         </div>
@@ -78,7 +78,7 @@ export function OportunidadeDetalhe({ oportunidade }: { oportunidade: Oportunida
           {fields.map((field) => (
             <div key={field.label}>
               <p className="text-xs font-medium mb-1" style={{ color: '#6b7280' }}>{field.label}</p>
-              <p className="text-sm" style={{ color: '#e8eaf0' }}>{field.value}</p>
+              <p className="text-sm" style={{ color: '#111827' }}>{field.value}</p>
             </div>
           ))}
         </div>

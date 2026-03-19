@@ -13,7 +13,7 @@ export default async function DashboardLayout({
   const userEmail = user?.email || ""
 
   return (
-    <div className="min-h-screen" style={{ background: '#0c0e14' }}>
+    <div className="min-h-screen" style={{ background: '#f4f5f7' }}>
       <Sidebar userName={userName} userEmail={userEmail} />
       <main className="ml-[240px] p-8">
         {children}
