@@ -1,5 +1,5 @@
 import { createServerSupabaseClient } from "@/lib/supabase-server"
-import { Sidebar } from "@/components/layout/Sidebar"
+import { TopNav } from "@/components/layout/TopNav"
 
 export default async function DashboardLayout({
   children,
@@ -12,10 +12,16 @@ export default async function DashboardLayout({
   const userName = user?.user_metadata?.name || user?.email?.split("@")[0] || "Usuário"
   const userEmail = user?.email || ""
 
+  // Contar oportunidades vencendo
+  const { data: vencendo } = await supabase
+    .from("oportunidades")
+    .select("id")
+    .eq("status", "vencendo")
+
   return (
-    <div className="min-h-screen" style={{ background: '#f4f5f7' }}>
-      <Sidebar userName={userName} userEmail={userEmail} />
-      <main className="ml-[240px] p-8">
+    <div className="min-h-screen flex flex-col" style={{ background: '#f4f5f7' }}>
+      <TopNav userName={userName} userEmail={userEmail} vencendoCount={vencendo?.length || 0} />
+      <main className="flex-1 px-6 py-8 max-w-[1400px] mx-auto w-full">
         {children}
       </main>
     </div>
