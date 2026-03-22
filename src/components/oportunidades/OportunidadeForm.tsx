@@ -16,15 +16,24 @@ interface DuracaoConfig {
   porParceiro: Record<string, number>
 }
 
+interface Prefill {
+  orgao_empresa?: string
+  titulo?: string
+  solucao_especifica?: string
+  observacoes?: string
+  pdti_id?: string
+}
+
 interface OportunidadeFormProps {
   oportunidade?: Oportunidade
   parceiros: Parceiro[]
   userId?: string
   userName?: string
   duracaoConfig?: DuracaoConfig
+  prefill?: Prefill
 }
 
-export function OportunidadeForm({ oportunidade, parceiros, userId, userName, duracaoConfig }: OportunidadeFormProps) {
+export function OportunidadeForm({ oportunidade, parceiros, userId, userName, duracaoConfig, prefill }: OportunidadeFormProps) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -32,15 +41,15 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName, du
   const [form, setForm] = useState({
     parceiro_nome: oportunidade?.parceiro_nome || "",
     parceiro_id: oportunidade?.parceiro_id || "",
-    titulo: oportunidade?.titulo || "",
-    orgao_empresa: oportunidade?.orgao_empresa || "",
+    titulo: oportunidade?.titulo || prefill?.titulo || "",
+    orgao_empresa: oportunidade?.orgao_empresa || prefill?.orgao_empresa || "",
     registrado_por: oportunidade?.registrado_por || userName || "",
     registrado_por_id: oportunidade?.registrado_por_id || userId || "",
     data_registro: oportunidade?.data_registro || new Date().toISOString().split("T")[0],
     data_validade: oportunidade?.data_validade || "",
-    solucao_especifica: oportunidade?.solucao_especifica || "",
+    solucao_especifica: oportunidade?.solucao_especifica || prefill?.solucao_especifica || "",
     descricao: oportunidade?.descricao || "",
-    observacoes: oportunidade?.observacoes || "",
+    observacoes: oportunidade?.observacoes || prefill?.observacoes || "",
   })
 
   const [filteredParceiros, setFilteredParceiros] = useState<Parceiro[]>([])

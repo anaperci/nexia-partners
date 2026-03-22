@@ -29,6 +29,28 @@ export interface Oportunidade {
 export type OportunidadeInsert = Omit<Oportunidade, 'id' | 'status' | 'criado_em' | 'atualizado_em'>
 export type OportunidadeUpdate = Partial<OportunidadeInsert>
 
+export interface UserProfile {
+  id: string
+  nome: string
+  perfil: 'nexia' | 'parceiro'
+  parceiro_id?: string
+  criado_em: string
+}
+
+export interface OportunidadePDTI {
+  id: string
+  orgao_nome: string
+  descricao: string
+  area?: string
+  potencial: 'alto' | 'medio' | 'baixo'
+  timing_previsto?: string
+  orcamento_estimado?: number
+  evidencia_texto?: string
+  pdti_documento?: string
+  oportunidade_parceiro_id?: string
+  criado_em: string
+}
+
 export interface ConfiguracaoDuracao {
   id: string
   parceiro_id?: string
