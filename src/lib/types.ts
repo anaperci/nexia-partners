@@ -28,3 +28,13 @@ export interface Oportunidade {
 
 export type OportunidadeInsert = Omit<Oportunidade, 'id' | 'status' | 'criado_em' | 'atualizado_em'>
 export type OportunidadeUpdate = Partial<OportunidadeInsert>
+
+export interface ConfiguracaoDuracao {
+  id: string
+  parceiro_id?: string
+  duracao_meses: number
+  descricao?: string
+  criado_em: string
+  atualizado_em: string
+  parceiro_nome?: string // join
+}

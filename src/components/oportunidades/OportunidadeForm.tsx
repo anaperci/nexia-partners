@@ -11,14 +11,20 @@ import { toast } from "sonner"
 import { criarOportunidade, atualizarOportunidade } from "@/app/(dashboard)/actions"
 import type { Oportunidade, OportunidadeInsert, Parceiro } from "@/lib/types"
 
+interface DuracaoConfig {
+  global: number
+  porParceiro: Record<string, number>
+}
+
 interface OportunidadeFormProps {
   oportunidade?: Oportunidade
   parceiros: Parceiro[]
   userId?: string
   userName?: string
+  duracaoConfig?: DuracaoConfig
 }
 
-export function OportunidadeForm({ oportunidade, parceiros, userId, userName }: OportunidadeFormProps) {
+export function OportunidadeForm({ oportunidade, parceiros, userId, userName, duracaoConfig }: OportunidadeFormProps) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -50,6 +56,17 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName }: 
       setFilteredParceiros([])
     }
   }, [form.parceiro_nome, parceiros])
+
+  // Auto-calcular data_validade ao selecionar parceiro (só em criação)
+  function calcularValidade(parceiroId: string, dataRegistro: string) {
+    if (oportunidade) return // não alterar em edição
+    if (!duracaoConfig || !dataRegistro) return
+    const meses = duracaoConfig.porParceiro[parceiroId] || duracaoConfig.global
+    const data = new Date(dataRegistro)
+    data.setMonth(data.getMonth() + meses)
+    const novaValidade = data.toISOString().split("T")[0]
+    setForm((prev) => ({ ...prev, data_validade: novaValidade }))
+  }
 
   function validate() {
     const newErrors: Record<string, string> = {}
@@ -126,6 +143,7 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName }: 
                 onClick={() => {
                   updateField("parceiro_nome", p.nome)
                   updateField("parceiro_id", p.id)
+                  calcularValidade(p.id, form.data_registro)
                   setShowSuggestions(false)
                 }}
               >

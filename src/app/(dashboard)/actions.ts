@@ -57,3 +57,60 @@ export async function excluirParceiro(id: string) {
   if (error) throw new Error(error.message)
   revalidatePath("/parceiros")
 }
+
+// ─── Configurações de Duração ───
+
+export async function salvarDuracaoPadrao(duracaoMeses: number) {
+  const supabase = await createServerSupabaseClient()
+  // Atualizar config global (parceiro_id IS NULL)
+  const { data: existing } = await supabase
+    .from("configuracoes_duracao")
+    .select("id")
+    .is("parceiro_id", null)
+    .single()
+
+  if (existing) {
+    const { error } = await supabase
+      .from("configuracoes_duracao")
+      .update({ duracao_meses: duracaoMeses, atualizado_em: new Date().toISOString() })
+      .eq("id", existing.id)
+    if (error) throw new Error(error.message)
+  } else {
+    const { error } = await supabase
+      .from("configuracoes_duracao")
+      .insert({ duracao_meses: duracaoMeses, descricao: "Duração padrão global" })
+    if (error) throw new Error(error.message)
+  }
+  revalidatePath("/configuracoes")
+  revalidatePath("/oportunidades")
+}
+
+export async function salvarDuracaoParceiro(parceiroId: string, duracaoMeses: number) {
+  const supabase = await createServerSupabaseClient()
+  const { data: existing } = await supabase
+    .from("configuracoes_duracao")
+    .select("id")
+    .eq("parceiro_id", parceiroId)
+    .single()
+
+  if (existing) {
+    const { error } = await supabase
+      .from("configuracoes_duracao")
+      .update({ duracao_meses: duracaoMeses, atualizado_em: new Date().toISOString() })
+      .eq("id", existing.id)
+    if (error) throw new Error(error.message)
+  } else {
+    const { error } = await supabase
+      .from("configuracoes_duracao")
+      .insert({ parceiro_id: parceiroId, duracao_meses: duracaoMeses })
+    if (error) throw new Error(error.message)
+  }
+  revalidatePath("/configuracoes")
+}
+
+export async function excluirDuracaoParceiro(id: string) {
+  const supabase = await createServerSupabaseClient()
+  const { error } = await supabase.from("configuracoes_duracao").delete().eq("id", id)
+  if (error) throw new Error(error.message)
+  revalidatePath("/configuracoes")
+}

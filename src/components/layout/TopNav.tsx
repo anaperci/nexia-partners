@@ -6,7 +6,7 @@ import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase"
 import { motion } from "framer-motion"
-import { LayoutDashboard, Briefcase, Users, BarChart3, LogOut, Menu, ChevronDown } from "lucide-react"
+import { LayoutDashboard, Briefcase, Users, BarChart3, LogOut, Menu, ChevronDown, Settings } from "lucide-react"
 import { toast } from "sonner"
 
 const navItems = [
@@ -38,6 +38,12 @@ const navItems = [
     label: "Relatórios",
     href: "/relatorios",
     icon: BarChart3,
+    submenu: null,
+  },
+  {
+    label: "Configurações",
+    href: "/configuracoes",
+    icon: Settings,
     submenu: null,
   },
 ]
@@ -76,7 +82,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0 }: TopNavProps) 
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo-nexia.png" alt="NexIA Lab" width={100} height={26} priority className="brightness-0 invert" />
+          <Image src="/logo-nexia-white.png" alt="NexIA Lab" width={100} height={26} priority className="" />
           <span
             className="text-white font-bold text-[15px] hidden sm:inline"
             style={{ fontFamily: "Syne, sans-serif" }}
@@ -176,7 +182,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0 }: TopNavProps) 
       {/* Subbarra contextual — só aparece se a seção ativa tiver submenu */}
       {activeItem?.submenu && (
         <div
-          className="hidden md:flex items-center gap-1 px-6 h-[40px] border-b"
+          className="hidden md:flex items-center gap-2 px-6 h-[44px] border-b"
           style={{ background: "#ffffff", borderColor: "#e5e7eb" }}
         >
           {activeItem.submenu.map((sub) => {
@@ -186,7 +192,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0 }: TopNavProps) 
               <Link
                 key={sub.href}
                 href={sub.href}
-                className="px-3 py-1.5 rounded-md text-xs font-medium transition-colors"
+                className="px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 style={{
                   background: isSubActive ? "#f3f4f6" : "transparent",
                   color: isSubActive ? "#111827" : "#6b7280",
@@ -207,7 +213,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0 }: TopNavProps) 
           <div className="absolute left-0 top-0 h-full w-[260px] p-0" style={{ background: "#46347F" }}>
             {/* Logo */}
             <div className="p-5 border-b" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-              <Image src="/logo-nexia.png" alt="NexIA Lab" width={120} height={30} className="brightness-0 invert" />
+              <Image src="/logo-nexia-white.png" alt="NexIA Lab" width={120} height={30} className="" />
             </div>
             {/* Nav items */}
             <nav className="p-4 space-y-1">

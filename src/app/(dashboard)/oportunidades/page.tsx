@@ -22,7 +22,7 @@ export default async function OportunidadesPage() {
     <>
       <Header title="Oportunidades" description="Gerencie todas as oportunidades de parceiros">
         <Link href="/oportunidades/nova">
-          <Button style={{ background: '#4f8ef7', color: '#fff' }}>
+          <Button style={{ background: '#46347F', color: '#fff' }}>
             <Plus className="mr-2 h-4 w-4" /> Nova Oportunidade
           </Button>
         </Link>
