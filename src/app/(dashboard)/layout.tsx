@@ -22,7 +22,7 @@ export default async function DashboardLayout({
   const { data: vencendo } = await vencendoQuery
 
   return (
-    <div className="min-h-screen" style={{ background: '#f4f3f8' }}>
+    <div className="min-h-screen" style={{ background: '#ffffff' }}>
       <Sidebar
         userName={userName}
         userEmail={userEmail}
