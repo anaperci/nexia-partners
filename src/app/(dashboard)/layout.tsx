@@ -22,14 +22,14 @@ export default async function DashboardLayout({
   const { data: vencendo } = await vencendoQuery
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: '#f4f5f7' }}>
+    <div className="min-h-screen flex flex-col" style={{ background: '#f4f3f8' }}>
       <TopNav
         userName={userName}
         userEmail={userEmail}
         vencendoCount={vencendo?.length || 0}
         perfil={profile?.perfil || 'nexia'}
       />
-      <main className="flex-1 px-6 py-8 max-w-[1400px] mx-auto w-full">
+      <main className="flex-1 px-6 py-6 max-w-[1400px] mx-auto w-full">
         {children}
       </main>
     </div>

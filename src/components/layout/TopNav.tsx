@@ -76,13 +76,10 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
         style={{ background: "#46347F" }}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo-nexia-white.jpg" alt="NexIA Lab" width={100} height={26} priority className="" />
-          <span
-            className="text-white font-bold text-[15px] hidden sm:inline"
-            style={{ fontFamily: "Syne, sans-serif" }}
-          >
-            Partners
+        <Link href="/" className="flex items-center gap-2 mr-5">
+          <Image src="/logo-nexia-white.jpg" alt="NexIA Lab" width={100} height={26} priority />
+          <span className="text-white font-bold text-[15px] tracking-tight hidden sm:inline" style={{ fontFamily: "Syne, sans-serif" }}>
+            <span className="opacity-55">Partners</span>
           </span>
         </Link>
 
@@ -97,11 +94,8 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative flex items-center gap-2 px-3 py-1.5 rounded-md text-[13px] transition-colors"
-                style={{
-                  color: isActive ? "#fff" : "rgba(255,255,255,0.65)",
-                  fontFamily: "DM Sans, sans-serif",
-                }}
+                className={`relative flex items-center gap-2 px-3 py-1.5 rounded-md text-[13px] transition-all whitespace-nowrap ${isActive ? "text-white font-medium" : "text-white/60 hover:text-white/90 hover:bg-white/[0.08]"}`}
+                style={{ fontFamily: "DM Sans, sans-serif" }}
               >
                 {isActive && (
                   <motion.div
@@ -185,8 +179,8 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
       {/* Subbarra contextual — só aparece se a seção ativa tiver submenu */}
       {activeItem?.submenu && (
         <div
-          className="hidden md:flex items-center gap-2 px-6 h-[44px] border-b"
-          style={{ background: "#ffffff", borderColor: "#e5e7eb" }}
+          className="hidden md:flex items-center gap-1 px-5 h-[38px] border-b"
+          style={{ background: "#ffffff", borderColor: "rgba(70,52,127,0.1)" }}
         >
           {activeItem.submenu.map((sub) => {
             const isSubActive = pathname + (typeof window !== "undefined" ? window.location.search : "") === sub.href ||
@@ -195,12 +189,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
               <Link
                 key={sub.href}
                 href={sub.href}
-                className="px-4 py-2 rounded-md text-sm font-medium transition-colors"
-                style={{
-                  background: isSubActive ? "#f3f4f6" : "transparent",
-                  color: isSubActive ? "#111827" : "#6b7280",
-                  fontFamily: "DM Sans, sans-serif",
-                }}
+                className={`px-2.5 py-1 rounded-md text-[12px] whitespace-nowrap transition-all ${isSubActive ? "bg-[#46347F]/[0.08] text-[#46347F] font-medium" : "text-gray-500 hover:text-gray-900 hover:bg-gray-100/60"}`}
               >
                 {sub.label}
               </Link>
