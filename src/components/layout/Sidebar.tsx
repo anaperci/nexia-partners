@@ -88,10 +88,10 @@ export function Sidebar({ userName, userEmail, perfil = "nexia", vencendoCount =
                   }
                 }}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium transition-all group",
+                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[14px] font-medium transition-all group",
                   isActive
                     ? "bg-white/15 text-white"
-                    : "text-white/55 hover:text-white/90 hover:bg-white/[0.07]"
+                    : "text-white/80 hover:text-white hover:bg-white/[0.07]"
                 )}
               >
                 <item.icon className="h-[18px] w-[18px] shrink-0" />
@@ -111,10 +111,10 @@ export function Sidebar({ userName, userEmail, perfil = "nexia", vencendoCount =
                         key={sub.href}
                         href={sub.href}
                         className={cn(
-                          "block pl-3 py-1.5 text-[12px] rounded-r-md transition-colors",
+                          "block pl-3 py-1.5 text-[13px] rounded-r-md transition-colors",
                           isSubActive
                             ? "text-white font-medium bg-white/10"
-                            : "text-white/40 hover:text-white/75"
+                            : "text-white/65 hover:text-white"
                         )}
                       >
                         {sub.label}
