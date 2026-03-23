@@ -77,7 +77,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 mr-5">
-          <Image src="/logo-nexia-white.jpg" alt="NexIA Lab" width={100} height={26} priority />
+          <Image src="/logo-nexia-white.png" alt="NexIA Lab" width={100} height={26} priority />
           <span className="text-white font-bold text-[15px] tracking-tight hidden sm:inline" style={{ fontFamily: "Syne, sans-serif" }}>
             <span className="opacity-55">Partners</span>
           </span>
@@ -205,7 +205,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
           <div className="absolute left-0 top-0 h-full w-[260px] p-0" style={{ background: "#46347F" }}>
             {/* Logo */}
             <div className="p-5 border-b" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-              <Image src="/logo-nexia-white.jpg" alt="NexIA Lab" width={120} height={30} className="" />
+              <Image src="/logo-nexia-white.png" alt="NexIA Lab" width={120} height={30} className="" />
             </div>
             {/* Nav items */}
             <nav className="p-4 space-y-1">
