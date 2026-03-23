@@ -1,11 +1,40 @@
+export type ParceiroStatus = 'ativo' | 'inativo' | 'suspenso'
+export type UsuarioStatus = 'ativo' | 'inativo'
+
 export interface Parceiro {
   id: string
   nome: string
   email?: string
   telefone?: string
   empresa?: string
+  razao_social?: string
+  cnpj?: string
+  email_comercial?: string
+  site?: string
+  cidade?: string
+  estado?: string
+  segmentos?: string[]
+  status?: ParceiroStatus
+  observacoes?: string
   criado_em: string
+  atualizado_em?: string
   _count?: number
+  _usuarios?: number
+}
+
+export interface ParceiroUsuario {
+  id: string
+  parceiro_id: string
+  user_id?: string
+  nome: string
+  email: string
+  cargo?: string
+  telefone?: string
+  status: UsuarioStatus
+  convite_enviado: boolean
+  convite_aceito: boolean
+  criado_em: string
+  atualizado_em: string
 }
 
 export interface Oportunidade {

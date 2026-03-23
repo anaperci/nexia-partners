@@ -19,7 +19,13 @@ const navItemsNexia = [
       { label: "Nova oportunidade", href: "/oportunidades/nova" },
     ],
   },
-  { label: "Parceiros", href: "/parceiros", icon: Users, submenu: null },
+  {
+    label: "Parceiros", href: "/parceiros", icon: Users,
+    submenu: [
+      { label: "Todos os parceiros", href: "/parceiros" },
+      { label: "Novo parceiro", href: "/parceiros/novo" },
+    ],
+  },
   { label: "Relatórios", href: "/relatorios", icon: BarChart3, submenu: null },
   { label: "Configurações", href: "/configuracoes", icon: Settings, submenu: null },
 ]

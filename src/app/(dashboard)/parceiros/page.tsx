@@ -1,34 +1,23 @@
-import { createServerSupabaseClient } from "@/lib/supabase-server"
 import { Header } from "@/components/layout/Header"
-import { ParceirosClient } from "@/components/parceiros/ParceirosClient"
+import { ParceirosListPage } from "@/components/parceiros/ParceirosListPage"
+import { getParceiros } from "@/lib/queries/parceiros"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Plus } from "lucide-react"
 
 export default async function ParceirosPage() {
-  const supabase = await createServerSupabaseClient()
-
-  const { data: parceiros } = await supabase
-    .from("parceiros")
-    .select("*")
-    .order("nome")
-
-  // Contar oportunidades por parceiro
-  const { data: oportunidades } = await supabase
-    .from("oportunidades")
-    .select("parceiro_nome")
-
-  const contagem: Record<string, number> = {}
-  oportunidades?.forEach((o) => {
-    contagem[o.parceiro_nome] = (contagem[o.parceiro_nome] || 0) + 1
-  })
-
-  const parceirosComContagem = (parceiros || []).map((p) => ({
-    ...p,
-    _count: contagem[p.nome] || 0,
-  }))
+  const parceiros = await getParceiros()
 
   return (
     <>
-      <Header title="Parceiros" description="Cadastre e gerencie os parceiros comerciais" />
-      <ParceirosClient parceiros={parceirosComContagem} />
+      <Header title="Parceiros" description="Gerencie os parceiros e seus usuários">
+        <Link href="/parceiros/novo">
+          <Button className="bg-[#46347F] hover:bg-[#3a2d6e] text-white rounded-lg h-9 px-4 text-[13px] font-medium">
+            <Plus size={14} className="mr-1.5" /> Novo Parceiro
+          </Button>
+        </Link>
+      </Header>
+      <ParceirosListPage parceiros={parceiros} />
     </>
   )
 }
