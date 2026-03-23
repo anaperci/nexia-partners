@@ -5,7 +5,7 @@ export interface Parceiro {
   telefone?: string
   empresa?: string
   criado_em: string
-  _count?: number // contagem de oportunidades
+  _count?: number
 }
 
 export interface Oportunidade {
@@ -22,6 +22,9 @@ export interface Oportunidade {
   data_validade: string
   status: 'ativo' | 'vencendo' | 'expirado'
   observacoes?: string
+  contato_nome?: string
+  contato_cargo?: string
+  contato_contato?: string
   criado_em: string
   atualizado_em: string
 }
@@ -34,6 +37,12 @@ export interface UserProfile {
   nome: string
   perfil: 'nexia' | 'parceiro'
   parceiro_id?: string
+  onboarding_completo?: boolean
+  empresa?: string
+  cargo?: string
+  telefone?: string
+  segmentos_atuacao?: string[]
+  como_conheceu?: string
   criado_em: string
 }
 
@@ -58,5 +67,5 @@ export interface ConfiguracaoDuracao {
   descricao?: string
   criado_em: string
   atualizado_em: string
-  parceiro_nome?: string // join
+  parceiro_nome?: string
 }

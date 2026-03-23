@@ -8,6 +8,11 @@ export default async function DashboardPage() {
 
   if (!profile) redirect("/login")
 
+  // Redirecionar parceiro para onboarding se não completou
+  if (!isNexia(profile) && !profile.onboarding_completo) {
+    redirect("/onboarding")
+  }
+
   if (isNexia(profile)) {
     return <DashboardNexia profile={profile} />
   }

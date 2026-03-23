@@ -6,20 +6,13 @@ import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase"
 import { motion } from "framer-motion"
-import { LayoutDashboard, Briefcase, Users, BarChart3, LogOut, Menu, ChevronDown, Settings } from "lucide-react"
+import { LayoutDashboard, Briefcase, Users, BarChart3, LogOut, Menu, ChevronDown, Settings, User } from "lucide-react"
 import { toast } from "sonner"
 
-const navItems = [
+const navItemsNexia = [
+  { label: "Dashboard", href: "/", icon: LayoutDashboard, submenu: null },
   {
-    label: "Dashboard",
-    href: "/",
-    icon: LayoutDashboard,
-    submenu: null,
-  },
-  {
-    label: "Oportunidades",
-    href: "/oportunidades",
-    icon: Briefcase,
+    label: "Oportunidades", href: "/oportunidades", icon: Briefcase,
     submenu: [
       { label: "Listar todas", href: "/oportunidades" },
       { label: "Nova oportunidade", href: "/oportunidades/nova" },
@@ -28,37 +21,39 @@ const navItems = [
       { label: "Expiradas", href: "/oportunidades?status=expirado" },
     ],
   },
+  { label: "Parceiros", href: "/parceiros", icon: Users, submenu: null },
+  { label: "Relatórios", href: "/relatorios", icon: BarChart3, submenu: null },
+  { label: "Configurações", href: "/configuracoes", icon: Settings, submenu: null },
+]
+
+const navItemsParceiro = [
+  { label: "Dashboard", href: "/", icon: LayoutDashboard, submenu: null },
   {
-    label: "Parceiros",
-    href: "/parceiros",
-    icon: Users,
-    submenu: null,
+    label: "Oportunidades", href: "/oportunidades", icon: Briefcase,
+    submenu: [
+      { label: "Minhas oportunidades", href: "/oportunidades" },
+      { label: "Nova oportunidade", href: "/oportunidades/nova" },
+      { label: "Ativas", href: "/oportunidades?status=ativo" },
+      { label: "Vencendo", href: "/oportunidades?status=vencendo" },
+    ],
   },
-  {
-    label: "Relatórios",
-    href: "/relatorios",
-    icon: BarChart3,
-    submenu: null,
-  },
-  {
-    label: "Configurações",
-    href: "/configuracoes",
-    icon: Settings,
-    submenu: null,
-  },
+  { label: "Meu Perfil", href: "/perfil", icon: User, submenu: null },
 ]
 
 interface TopNavProps {
   userName: string
   userEmail: string
   vencendoCount?: number
+  perfil?: 'nexia' | 'parceiro'
 }
 
-export function TopNav({ userName, userEmail, vencendoCount = 0 }: TopNavProps) {
+export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia' }: TopNavProps) {
   const pathname = usePathname()
   const router = useRouter()
   const supabase = createClient()
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const navItems = perfil === 'nexia' ? navItemsNexia : navItemsParceiro
 
   // Determinar item ativo (match mais longo, Dashboard só se pathname === "/")
   const activeItem = navItems.find((item) => {
@@ -157,6 +152,14 @@ export function TopNav({ userName, userEmail, vencendoCount = 0 }: TopNavProps) 
                 <p className="text-xs" style={{ color: "#6b7280" }}>{userEmail}</p>
               </div>
               <div className="p-1">
+                <button
+                  onClick={() => router.push("/perfil")}
+                  className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-md hover:bg-gray-50 transition-colors"
+                  style={{ color: "#374151" }}
+                >
+                  <User className="h-4 w-4" />
+                  Meu Perfil
+                </button>
                 <button
                   onClick={handleLogout}
                   className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-md hover:bg-gray-50 transition-colors"

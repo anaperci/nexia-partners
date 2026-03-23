@@ -114,3 +114,31 @@ export async function excluirDuracaoParceiro(id: string) {
   if (error) throw new Error(error.message)
   revalidatePath("/configuracoes")
 }
+
+// ─── Onboarding / Perfil ───
+
+export async function salvarOnboarding(userId: string, data: {
+  nome: string; empresa?: string; cargo?: string; telefone?: string;
+  segmentos_atuacao?: string[]; como_conheceu?: string
+}) {
+  const supabase = await createServerSupabaseClient()
+  const { error } = await supabase
+    .from("user_profiles")
+    .update({ ...data, onboarding_completo: true })
+    .eq("id", userId)
+  if (error) throw new Error(error.message)
+  revalidatePath("/")
+}
+
+export async function atualizarPerfil(userId: string, data: {
+  nome?: string; empresa?: string; cargo?: string; telefone?: string;
+  segmentos_atuacao?: string[]; como_conheceu?: string
+}) {
+  const supabase = await createServerSupabaseClient()
+  const { error } = await supabase
+    .from("user_profiles")
+    .update(data)
+    .eq("id", userId)
+  if (error) throw new Error(error.message)
+  revalidatePath("/perfil")
+}
