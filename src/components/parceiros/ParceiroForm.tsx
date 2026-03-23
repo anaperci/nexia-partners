@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Loader2, Save, ArrowLeft } from "lucide-react"
 import { toast } from "sonner"
 import { criarParceiroAction, editarParceiroAction } from "@/app/(dashboard)/parceiros/actions"
-import type { Parceiro } from "@/lib/types"
+import type { Parceiro, ParceiroStatus } from "@/lib/types"
 
 const SEGMENTOS = ["Governo", "Saúde", "Educação", "Indústria", "Financeiro", "Varejo", "Outro"]
 const UFS = ["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]
@@ -31,7 +31,7 @@ export function ParceiroForm({ parceiro }: Props) {
     cidade: parceiro?.cidade || "",
     estado: parceiro?.estado || "",
     segmentos: parceiro?.segmentos || [],
-    status: parceiro?.status || "ativo",
+    status: (parceiro?.status || "ativo") as ParceiroStatus,
     observacoes: parceiro?.observacoes || "",
   })
 
@@ -80,7 +80,7 @@ export function ParceiroForm({ parceiro }: Props) {
           </div>
           <div className="space-y-2">
             <Label className="text-[#374151]">Status</Label>
-            <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}
+            <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value as ParceiroStatus })}
               className="w-full h-9 rounded-lg border border-black/[0.07] px-3 text-[13px] text-[#1a1523]">
               <option value="ativo">Ativo</option>
               <option value="inativo">Inativo</option>
