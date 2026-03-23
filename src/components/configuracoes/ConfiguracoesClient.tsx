@@ -87,7 +87,7 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
             <Settings className="h-5 w-5" style={{ color: "#46347F" }} />
           </div>
           <div>
-            <h2 className="text-lg font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+            <h2 className="text-lg font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
               Duração Padrão Global
             </h2>
             <p className="text-sm" style={{ color: "#6b7280" }}>
@@ -106,7 +106,7 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
               value={globalMeses}
               onChange={(e) => setGlobalMeses(Number(e.target.value))}
               className="border-gray-300"
-              style={{ background: "#f9fafb", color: "#111827" }}
+              style={{ background: "#f9fafb", color: "#1a1523" }}
             />
           </div>
           <div className="text-sm py-2 px-3 rounded-lg" style={{ background: "#f3f4f6", color: "#6b7280" }}>
@@ -125,7 +125,7 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
             <Clock className="h-5 w-5" style={{ color: "#8b5cf6" }} />
           </div>
           <div>
-            <h2 className="text-lg font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+            <h2 className="text-lg font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
               Duração por Parceiro
             </h2>
             <p className="text-sm" style={{ color: "#6b7280" }}>
@@ -149,8 +149,8 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
               <tbody>
                 {configsParceiros.map((c) => (
                   <tr key={c.id} className="border-b" style={{ borderColor: "#e5e7eb" }}>
-                    <td className="p-3 font-medium" style={{ color: "#111827" }}>{c.parceiro_nome}</td>
-                    <td className="p-3 text-center" style={{ color: "#111827" }}>{c.duracao_meses} meses</td>
+                    <td className="p-3 font-medium" style={{ color: "#1a1523" }}>{c.parceiro_nome}</td>
+                    <td className="p-3 text-center" style={{ color: "#1a1523" }}>{c.duracao_meses} meses</td>
                     <td className="p-3 text-center" style={{ color: "#6b7280" }}>{Math.round(c.duracao_meses * 30.44)} dias</td>
                     <td className="p-3 text-right">
                       <AlertDialog>
@@ -161,13 +161,13 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
                         </AlertDialogTrigger>
                         <AlertDialogContent style={{ background: "#ffffff", borderColor: "#e5e7eb" }}>
                           <AlertDialogHeader>
-                            <AlertDialogTitle style={{ color: "#111827" }}>Remover configuração?</AlertDialogTitle>
+                            <AlertDialogTitle style={{ color: "#1a1523" }}>Remover configuração?</AlertDialogTitle>
                             <AlertDialogDescription style={{ color: "#6b7280" }}>
                               O parceiro &quot;{c.parceiro_nome}&quot; passará a usar a duração padrão global de {configGlobal.duracao_meses} meses.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel className="border-gray-300" style={{ color: "#111827", background: "transparent" }}>Cancelar</AlertDialogCancel>
+                            <AlertDialogCancel className="border-gray-300" style={{ color: "#1a1523", background: "transparent" }}>Cancelar</AlertDialogCancel>
                             <AlertDialogAction onClick={() => handleDelete(c.id)} style={{ background: "#ef4444", color: "#fff" }}>Remover</AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>
@@ -188,7 +188,7 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
               value={novoParceiroId}
               onChange={(e) => setNovoParceiroId(e.target.value)}
               className="w-full h-9 rounded-md border px-3 text-sm"
-              style={{ background: "#f9fafb", color: "#111827", borderColor: "#d1d5db" }}
+              style={{ background: "#f9fafb", color: "#1a1523", borderColor: "#d1d5db" }}
             >
               <option value="">Selecionar parceiro...</option>
               {parceirosDisponiveis.map((p) => (
@@ -205,7 +205,7 @@ export function ConfiguracoesClient({ configGlobal, configsParceiros, parceiros 
               value={novoMeses}
               onChange={(e) => setNovoMeses(Number(e.target.value))}
               className="border-gray-300"
-              style={{ background: "#f9fafb", color: "#111827" }}
+              style={{ background: "#f9fafb", color: "#1a1523" }}
             />
           </div>
           <Button onClick={handleAddParceiro} disabled={adding} style={{ background: "#46347F", color: "#fff" }}>

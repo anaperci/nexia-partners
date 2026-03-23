@@ -56,7 +56,7 @@ export function OnboardingClient({ profile }: { profile: UserProfile }) {
       <div className="min-h-[70vh] flex items-center justify-center">
         <div className="max-w-lg w-full text-center rounded-2xl border p-10" style={{ background: "#ffffff", borderColor: "#e5e7eb" }}>
           <Image src="/logo-nexia.png" alt="NexIA Lab" width={160} height={40} className="mx-auto mb-6" />
-          <h1 className="text-2xl font-bold mb-2" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+          <h1 className="text-2xl font-bold mb-2" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
             Bem-vindo ao NexIA Partners, {profile.nome}!
           </h1>
           <p className="text-sm mb-8" style={{ color: "#6b7280" }}>
@@ -92,7 +92,7 @@ export function OnboardingClient({ profile }: { profile: UserProfile }) {
 
   return (
     <div className="max-w-lg mx-auto">
-      <h1 className="text-2xl font-bold mb-2" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+      <h1 className="text-2xl font-bold mb-2" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
         Complete seu perfil
       </h1>
       <p className="text-sm mb-8" style={{ color: "#6b7280" }}>
@@ -103,26 +103,26 @@ export function OnboardingClient({ profile }: { profile: UserProfile }) {
         <div className="space-y-2">
           <Label style={{ color: "#374151" }}>Nome completo *</Label>
           <Input value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })}
-            className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+            className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label style={{ color: "#374151" }}>Empresa</Label>
             <Input value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })}
-              placeholder="Sua empresa" className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+              placeholder="Sua empresa" className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
           </div>
           <div className="space-y-2">
             <Label style={{ color: "#374151" }}>Cargo</Label>
             <Input value={form.cargo} onChange={(e) => setForm({ ...form, cargo: e.target.value })}
-              placeholder="Seu cargo" className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+              placeholder="Seu cargo" className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
           </div>
         </div>
 
         <div className="space-y-2">
           <Label style={{ color: "#374151" }}>Telefone / WhatsApp</Label>
           <Input value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })}
-            placeholder="(00) 00000-0000" className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+            placeholder="(00) 00000-0000" className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
         </div>
 
         <div className="space-y-2">
@@ -152,7 +152,7 @@ export function OnboardingClient({ profile }: { profile: UserProfile }) {
             value={form.como_conheceu}
             onChange={(e) => setForm({ ...form, como_conheceu: e.target.value })}
             className="w-full h-9 rounded-md border px-3 text-sm"
-            style={{ background: "#f9fafb", color: "#111827", borderColor: "#d1d5db" }}
+            style={{ background: "#f9fafb", color: "#1a1523", borderColor: "#d1d5db" }}
           >
             <option value="">Selecionar...</option>
             {COMO_CONHECEU.map((c) => (

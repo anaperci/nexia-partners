@@ -7,9 +7,9 @@ import { Building2, ArrowRight, ChevronDown, ChevronUp } from "lucide-react"
 import type { OportunidadePDTI } from "@/lib/types"
 
 const potencialConfig = {
-  alto: { bg: "bg-green-50", text: "text-green-700", label: "ALTO" },
-  medio: { bg: "bg-amber-50", text: "text-amber-700", label: "MÉDIO" },
-  baixo: { bg: "bg-gray-100", text: "text-gray-600", label: "BAIXO" },
+  alto: { bg: "bg-[#eaf3de]", text: "text-[#3b6d11]", label: "Alto" },
+  medio: { bg: "bg-[#faeeda]", text: "text-[#854f0b]", label: "Médio" },
+  baixo: { bg: "bg-gray-100", text: "text-gray-600", label: "Baixo" },
 }
 
 export function OportunidadePDTICard({ oportunidade }: { oportunidade: OportunidadePDTI }) {
@@ -39,12 +39,12 @@ export function OportunidadePDTICard({ oportunidade }: { oportunidade: Oportunid
         {/* Conteúdo */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1">
-            <span className="font-semibold text-sm" style={{ color: "#111827" }}>{oportunidade.orgao_nome}</span>
+            <span className="font-semibold text-sm" style={{ color: "#1a1523" }}>{oportunidade.orgao_nome}</span>
             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${pot.bg} ${pot.text}`}>
               {pot.label}
             </span>
             {oportunidade.area && (
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium">
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#f0edf8] text-[#46347F] font-medium">
                 {oportunidade.area}
               </span>
             )}

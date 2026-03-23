@@ -66,10 +66,10 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
     <div>
       {/* Botões de exportação */}
       <div className="flex gap-3 mb-6 no-print">
-        <Button onClick={exportCSV} variant="outline" className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>
+        <Button onClick={exportCSV} variant="outline" className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>
           <Download className="mr-2 h-4 w-4" /> Exportar CSV
         </Button>
-        <Button onClick={() => window.print()} variant="outline" className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>
+        <Button onClick={() => window.print()} variant="outline" className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>
           <Printer className="mr-2 h-4 w-4" /> Imprimir / PDF
         </Button>
       </div>
@@ -99,7 +99,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
         {/* Por Parceiro */}
         {tab === "parceiro" && (
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
+            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#1a1523' }}>
               Oportunidades por Parceiro
             </h3>
             {dadosParceiro.length > 0 && (
@@ -108,7 +108,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
                   <BarChart data={dadosParceiro} layout="vertical" margin={{ left: 100 }}>
                     <XAxis type="number" stroke="#6b7280" />
                     <YAxis type="category" dataKey="nome" stroke="#6b7280" width={90} tick={{ fontSize: 12 }} />
-                    <Tooltip contentStyle={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 8, color: '#111827' }} />
+                    <Tooltip contentStyle={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 8, color: '#1a1523' }} />
                     <Bar dataKey="total" fill="#46347F" radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
@@ -128,8 +128,8 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
                 <tbody>
                   {dadosParceiro.map((p) => (
                     <tr key={p.nome} className="border-b" style={{ borderColor: '#e5e7eb' }}>
-                      <td className="p-3" style={{ color: '#111827' }}>{p.nome}</td>
-                      <td className="p-3 text-center" style={{ color: '#111827' }}>{p.total}</td>
+                      <td className="p-3" style={{ color: '#1a1523' }}>{p.nome}</td>
+                      <td className="p-3 text-center" style={{ color: '#1a1523' }}>{p.total}</td>
                       <td className="p-3 text-center" style={{ color: '#22c55e' }}>{p.ativo}</td>
                       <td className="p-3 text-center" style={{ color: '#f59e0b' }}>{p.vencendo}</td>
                       <td className="p-3 text-center" style={{ color: '#ef4444' }}>{p.expirado}</td>
@@ -144,7 +144,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
         {/* Por Status */}
         {tab === "status" && (
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
+            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#1a1523' }}>
               Oportunidades por Status
             </h3>
             <div className="grid grid-cols-3 gap-4 mb-6">
@@ -164,7 +164,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
                         <Cell key={s.name} fill={s.color} />
                       ))}
                     </Pie>
-                    <Tooltip contentStyle={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 8, color: '#111827' }} />
+                    <Tooltip contentStyle={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 8, color: '#1a1523' }} />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
@@ -175,7 +175,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
         {/* Por Órgão */}
         {tab === "orgao" && (
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
+            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#1a1523' }}>
               Top 10 Órgãos/Empresas
             </h3>
             {dadosOrgao.length > 0 && (
@@ -184,7 +184,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
                   <BarChart data={dadosOrgao} layout="vertical" margin={{ left: 120 }}>
                     <XAxis type="number" stroke="#6b7280" />
                     <YAxis type="category" dataKey="nome" stroke="#6b7280" width={110} tick={{ fontSize: 12 }} />
-                    <Tooltip contentStyle={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 8, color: '#111827' }} />
+                    <Tooltip contentStyle={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 8, color: '#1a1523' }} />
                     <Bar dataKey="total" fill="#8b5cf6" radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
@@ -199,7 +199,7 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
         {/* Linha do Tempo */}
         {tab === "timeline" && (
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
+            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Syne, sans-serif', color: '#1a1523' }}>
               Linha do Tempo — por Data de Validade
             </h3>
             <div className="space-y-3">
@@ -217,10 +217,10 @@ export function RelatoriosClient({ oportunidades }: { oportunidades: Oportunidad
                   >
                     <div className="text-center min-w-[80px]">
                       <p className="text-xs" style={{ color: '#6b7280' }}>Validade</p>
-                      <p className="text-sm font-medium" style={{ color: '#111827' }}>{formatDate(o.data_validade)}</p>
+                      <p className="text-sm font-medium" style={{ color: '#1a1523' }}>{formatDate(o.data_validade)}</p>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-medium" style={{ color: '#111827' }}>{o.titulo}</p>
+                      <p className="text-sm font-medium" style={{ color: '#1a1523' }}>{o.titulo}</p>
                       <p className="text-xs" style={{ color: '#6b7280' }}>{o.parceiro_nome} — {o.orgao_empresa}</p>
                     </div>
                     <StatusBadge status={o.status} />

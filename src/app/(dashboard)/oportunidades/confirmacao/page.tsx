@@ -18,7 +18,7 @@ export default function ConfirmacaoPage() {
           <CheckCircle className="h-8 w-8" style={{ color: "#22c55e" }} />
         </div>
 
-        <h1 className="text-xl font-bold mb-2" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+        <h1 className="text-xl font-bold mb-2" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
           Oportunidade registrada com sucesso!
         </h1>
 
@@ -29,17 +29,17 @@ export default function ConfirmacaoPage() {
         <div className="rounded-lg p-4 mb-6 text-left space-y-2" style={{ background: "#f9fafb" }}>
           <div>
             <span className="text-xs font-medium" style={{ color: "#6b7280" }}>Oportunidade</span>
-            <p className="text-sm font-medium" style={{ color: "#111827" }}>{titulo}</p>
+            <p className="text-sm font-medium" style={{ color: "#1a1523" }}>{titulo}</p>
           </div>
           {orgao && (
             <div>
               <span className="text-xs font-medium" style={{ color: "#6b7280" }}>Órgão/Empresa</span>
-              <p className="text-sm" style={{ color: "#111827" }}>{orgao}</p>
+              <p className="text-sm" style={{ color: "#1a1523" }}>{orgao}</p>
             </div>
           )}
           <div>
             <span className="text-xs font-medium" style={{ color: "#6b7280" }}>Registrada em</span>
-            <p className="text-sm" style={{ color: "#111827" }}>{data}</p>
+            <p className="text-sm" style={{ color: "#1a1523" }}>{data}</p>
           </div>
         </div>
 

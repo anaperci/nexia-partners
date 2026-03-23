@@ -7,6 +7,7 @@ import { getStatsOportunidades, getOportunidadesRecentes, getTopParceiros, getAl
 import { getOportunidadesPDTI } from "@/lib/queries/pdti"
 import { FileText, CheckCircle, AlertTriangle, XCircle, Users, Sparkles, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { PageTransition } from "@/components/ui/page-transition"
 import type { UserProfile } from "@/lib/types"
 
 export async function DashboardNexia({ profile }: { profile: UserProfile }) {
@@ -19,14 +20,14 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
   ])
 
   return (
-    <>
+    <PageTransition>
       {/* Page header */}
       <div className="flex items-end justify-between mb-6">
         <div>
           <h1 className="text-[22px] font-bold tracking-[-0.03em] text-[#1a1523]" style={{ fontFamily: "Syne, sans-serif" }}>
             Dashboard
           </h1>
-          <p className="text-[13px] text-gray-500 mt-0.5">
+          <p className="text-[13px] text-[#9ca3af] mt-0.5">
             Bem-vinda, {profile.nome}
           </p>
         </div>
@@ -42,17 +43,17 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
         <MetricCard label="Total" value={stats.total} sublabel="oportunidades" icon={FileText}
           iconBg="bg-[#f0edf8]" iconColor="text-[#46347F]" />
         <MetricCard label="Ativas" value={stats.ativas} sublabel="em vigor" icon={CheckCircle}
-          iconBg="bg-green-50" iconColor="text-green-700" valueColor="text-green-700" />
+          iconBg="bg-[#eaf3de]" iconColor="text-[#3b6d11]" valueColor="text-[#3b6d11]" />
         <MetricCard label="Vencendo" value={stats.vencendo} sublabel="próximos 15 dias" icon={AlertTriangle}
-          iconBg="bg-amber-50" iconColor="text-amber-700" valueColor="text-amber-700" />
+          iconBg="bg-[#faeeda]" iconColor="text-[#854f0b]" valueColor="text-[#854f0b]" />
       </div>
 
       {/* Métricas — linha 2: 2 colunas */}
       <div className="grid grid-cols-2 gap-2 mb-5">
         <MetricCard label="Expiradas" value={stats.expiradas} sublabel="encerradas" icon={XCircle}
-          iconBg="bg-red-50" iconColor="text-red-700" valueColor="text-red-700" />
+          iconBg="bg-[#fcebeb]" iconColor="text-[#a32d2d]" valueColor="text-[#a32d2d]" />
         <MetricCard label="Parceiros" value={topParceiros.length} sublabel="ativos" icon={Users}
-          iconBg="bg-blue-50" iconColor="text-blue-700" valueColor="text-blue-700" />
+          iconBg="bg-[#e6f1fb]" iconColor="text-[#185fa5]" valueColor="text-[#185fa5]" />
       </div>
 
       {/* Grid principal: PDTI (esquerda) + Laterais (direita) */}
@@ -69,14 +70,14 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
             <span className="text-[10px] bg-[#46347F] text-white rounded-full px-2 py-0.5 font-semibold tracking-wide">
               Exclusivo NexIA
             </span>
-            <span className="text-[11px] text-gray-400 ml-auto">
+            <span className="text-[11px] text-[#9ca3af] ml-auto">
               Identificadas por IA
             </span>
           </div>
 
           {/* Lista PDTI */}
           {pdtiOps.length === 0 ? (
-            <p className="text-sm py-10 text-center text-gray-400">
+            <p className="text-sm py-10 text-center text-[#9ca3af]">
               Nenhuma oportunidade PDTI identificada no momento.
             </p>
           ) : (
@@ -100,17 +101,17 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
               <Link href="/oportunidades" className="text-[11px] text-[#46347F] font-medium">Ver todas →</Link>
             </div>
             {recentes.length === 0 ? (
-              <p className="text-xs py-8 text-center text-gray-400">Nenhuma oportunidade ainda.</p>
+              <p className="text-xs py-8 text-center text-[#9ca3af]">Nenhuma oportunidade ainda.</p>
             ) : (
               recentes.map((op) => (
                 <div key={op.id} className="px-3.5 py-2.5 border-b border-black/[0.04] last:border-0">
                   <Link href={`/oportunidades/${op.id}`} className="hover:underline">
                     <p className="text-[12px] font-medium text-[#1a1523] truncate">{op.titulo}</p>
                   </Link>
-                  <p className="text-[11px] text-gray-500 mt-0.5">{op.orgao_empresa} · {op.parceiro_nome}</p>
+                  <p className="text-[11px] text-[#9ca3af] mt-0.5">{op.orgao_empresa} · {op.parceiro_nome}</p>
                   <div className="flex items-center justify-between mt-1">
                     <StatusBadge status={op.status} />
-                    <span className="text-[10px] text-gray-400">{formatDate(op.criado_em)}</span>
+                    <span className="text-[10px] text-[#9ca3af]">{formatDate(op.criado_em)}</span>
                   </div>
                 </div>
               ))
@@ -124,7 +125,7 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
               <Link href="/parceiros" className="text-[11px] text-[#46347F] font-medium">Ver todos →</Link>
             </div>
             {topParceiros.length === 0 ? (
-              <p className="text-xs py-8 text-center text-gray-400">Nenhum parceiro ainda.</p>
+              <p className="text-xs py-8 text-center text-[#9ca3af]">Nenhum parceiro ainda.</p>
             ) : (
               topParceiros.map((p) => (
                 <div key={p.nome} className="px-3.5 py-2.5 border-b border-black/[0.04] last:border-0 flex items-center gap-2.5">
@@ -133,7 +134,7 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[12px] font-medium text-[#1a1523] truncate">{p.nome}</p>
-                    <p className="text-[11px] text-gray-500">{p.total} oportunidades</p>
+                    <p className="text-[11px] text-[#9ca3af]">{p.total} oportunidades</p>
                   </div>
                   <div className="w-14 h-1 bg-[#f0edf8] rounded-full shrink-0">
                     <div
@@ -150,7 +151,7 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
           {alertas.length > 0 && (
             <div className="bg-white rounded-xl border border-black/[0.07] overflow-hidden">
               <div className="px-3.5 py-3 border-b border-black/[0.06]">
-                <span className="text-[13px] font-semibold text-amber-700">
+                <span className="text-[13px] font-semibold text-[#854f0b]">
                   <AlertTriangle className="inline h-3.5 w-3.5 mr-1" />
                   Vencendo em breve
                 </span>
@@ -162,13 +163,13 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
                   className="block px-3.5 py-2.5 border-b border-black/[0.04] last:border-0 hover:bg-amber-50/30 transition-colors"
                 >
                   <p className="text-[12px] font-medium text-[#1a1523]">{a.titulo}</p>
-                  <p className="text-[11px] text-gray-500">{a.parceiro_nome} · Vence {formatDate(a.data_validade)}</p>
+                  <p className="text-[11px] text-[#9ca3af]">{a.parceiro_nome} · Vence {formatDate(a.data_validade)}</p>
                 </Link>
               ))}
             </div>
           )}
         </div>
       </div>
-    </>
+    </PageTransition>
   )
 }

@@ -79,14 +79,14 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
             className="pl-10 border-[#e5e7eb]"
-            style={{ background: '#f9fafb', color: '#111827' }}
+            style={{ background: '#f9fafb', color: '#1a1523' }}
           />
         </div>
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
           className="rounded-lg border px-3 py-2 text-sm"
-          style={{ background: '#f9fafb', color: '#111827', borderColor: '#e5e7eb' }}
+          style={{ background: '#f9fafb', color: '#1a1523', borderColor: '#e5e7eb' }}
         >
           <option value="todos">Todos os status</option>
           <option value="ativo">Ativo</option>
@@ -97,7 +97,7 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
           value={parceiroFilter}
           onChange={(e) => setParceiroFilter(e.target.value)}
           className="rounded-lg border px-3 py-2 text-sm"
-          style={{ background: '#f9fafb', color: '#111827', borderColor: '#e5e7eb' }}
+          style={{ background: '#f9fafb', color: '#1a1523', borderColor: '#e5e7eb' }}
         >
           <option value="todos">Todos os parceiros</option>
           {parceiros.map((p) => (
@@ -141,8 +141,8 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
               ) : (
                 filtered.map((op) => (
                   <tr key={op.id} className="border-b hover:bg-gray-50 transition-colors" style={{ borderColor: '#e5e7eb' }}>
-                    <td className="p-4" style={{ color: '#111827' }}>{op.titulo}</td>
-                    <td className="p-4" style={{ color: '#111827' }}>{op.parceiro_nome}</td>
+                    <td className="p-4" style={{ color: '#1a1523' }}>{op.titulo}</td>
+                    <td className="p-4" style={{ color: '#1a1523' }}>{op.parceiro_nome}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{op.orgao_empresa}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{formatDate(op.data_validade)}</td>
                     <td className="p-4"><StatusBadge status={op.status} /></td>
@@ -162,13 +162,13 @@ export function OportunidadesListClient({ oportunidades, parceiros }: Props) {
                           </AlertDialogTrigger>
                           <AlertDialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
                             <AlertDialogHeader>
-                              <AlertDialogTitle style={{ color: '#111827' }}>Confirmar exclusão</AlertDialogTitle>
+                              <AlertDialogTitle style={{ color: '#1a1523' }}>Confirmar exclusão</AlertDialogTitle>
                               <AlertDialogDescription style={{ color: '#6b7280' }}>
                                 Tem certeza que deseja excluir &quot;{op.titulo}&quot;? Esta ação não pode ser desfeita.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>Cancelar</AlertDialogCancel>
+                              <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>Cancelar</AlertDialogCancel>
                               <AlertDialogAction onClick={() => handleDelete(op.id)} style={{ background: '#ef4444', color: '#fff' }}>Excluir</AlertDialogAction>
                             </AlertDialogFooter>
                           </AlertDialogContent>

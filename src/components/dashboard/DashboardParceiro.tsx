@@ -36,7 +36,7 @@ export async function DashboardParceiro({ profile }: { profile: UserProfile }) {
                 <card.icon className="h-4 w-4" style={{ color: card.color }} />
               </div>
             </div>
-            <p className="text-3xl font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+            <p className="text-3xl font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
               {card.value}
             </p>
           </div>
@@ -49,7 +49,7 @@ export async function DashboardParceiro({ profile }: { profile: UserProfile }) {
         style={{ background: "rgba(70,52,127,0.04)", borderColor: "rgba(70,52,127,0.15)" }}
       >
         <div>
-          <h3 className="text-base font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+          <h3 className="text-base font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
             Encontrou uma nova oportunidade?
           </h3>
           <p className="text-sm mt-1" style={{ color: "#6b7280" }}>
@@ -66,7 +66,7 @@ export async function DashboardParceiro({ profile }: { profile: UserProfile }) {
       {/* Minhas oportunidades recentes */}
       <div className="rounded-xl border" style={{ background: "#ffffff", borderColor: "#e5e7eb" }}>
         <div className="p-5 border-b flex items-center justify-between" style={{ borderColor: "#e5e7eb" }}>
-          <h2 className="text-lg font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#111827" }}>
+          <h2 className="text-lg font-bold" style={{ fontFamily: "Syne, sans-serif", color: "#1a1523" }}>
             Minhas Oportunidades Recentes
           </h2>
           <Link href="/oportunidades" className="text-sm hover:underline" style={{ color: "#46347F" }}>
@@ -94,7 +94,7 @@ export async function DashboardParceiro({ profile }: { profile: UserProfile }) {
                 recentes.map((op) => (
                   <tr key={op.id} className="border-b hover:bg-gray-50 transition-colors" style={{ borderColor: "#e5e7eb" }}>
                     <td className="p-4">
-                      <Link href={`/oportunidades/${op.id}`} className="hover:underline" style={{ color: "#111827" }}>
+                      <Link href={`/oportunidades/${op.id}`} className="hover:underline" style={{ color: "#1a1523" }}>
                         {op.titulo}
                       </Link>
                     </td>

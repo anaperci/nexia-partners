@@ -142,7 +142,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
               style={{ background: "#ffffff", borderColor: "#e5e7eb" }}
             >
               <div className="p-3 border-b" style={{ borderColor: "#e5e7eb" }}>
-                <p className="text-sm font-medium" style={{ color: "#111827" }}>{userName}</p>
+                <p className="text-sm font-medium" style={{ color: "#1a1523" }}>{userName}</p>
                 <p className="text-xs" style={{ color: "#6b7280" }}>{userEmail}</p>
               </div>
               <div className="p-1">
@@ -189,7 +189,7 @@ export function TopNav({ userName, userEmail, vencendoCount = 0, perfil = 'nexia
               <Link
                 key={sub.href}
                 href={sub.href}
-                className={`px-2.5 py-1 rounded-md text-[12px] whitespace-nowrap transition-all ${isSubActive ? "bg-[#46347F]/[0.08] text-[#46347F] font-medium" : "text-gray-500 hover:text-gray-900 hover:bg-gray-100/60"}`}
+                className={`px-2.5 py-1 rounded-md text-[12px] whitespace-nowrap transition-all ${isSubActive ? "bg-[#46347F]/[0.08] text-[#46347F] font-medium" : "text-[#9ca3af] hover:text-gray-900 hover:bg-gray-100/60"}`}
               >
                 {sub.label}
               </Link>

@@ -43,7 +43,7 @@ export function OportunidadeDetalhe({ oportunidade }: { oportunidade: Oportunida
   return (
     <>
       <Header title={oportunidade.titulo} description="Detalhes da oportunidade">
-        <Button variant="outline" onClick={() => router.push("/oportunidades")} className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>
+        <Button variant="outline" onClick={() => router.push("/oportunidades")} className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Voltar
         </Button>
         <Button onClick={() => router.push(`/oportunidades/${oportunidade.id}?edit=true`)} style={{ background: '#46347F', color: '#fff' }}>
@@ -57,13 +57,13 @@ export function OportunidadeDetalhe({ oportunidade }: { oportunidade: Oportunida
           </AlertDialogTrigger>
           <AlertDialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
             <AlertDialogHeader>
-              <AlertDialogTitle style={{ color: '#111827' }}>Confirmar exclusão</AlertDialogTitle>
+              <AlertDialogTitle style={{ color: '#1a1523' }}>Confirmar exclusão</AlertDialogTitle>
               <AlertDialogDescription style={{ color: '#6b7280' }}>
                 Tem certeza que deseja excluir esta oportunidade? Esta ação não pode ser desfeita.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>Cancelar</AlertDialogCancel>
+              <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>Cancelar</AlertDialogCancel>
               <AlertDialogAction onClick={handleDelete} style={{ background: '#ef4444', color: '#fff' }}>Excluir</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
@@ -78,7 +78,7 @@ export function OportunidadeDetalhe({ oportunidade }: { oportunidade: Oportunida
           {fields.map((field) => (
             <div key={field.label}>
               <p className="text-xs font-medium mb-1" style={{ color: '#6b7280' }}>{field.label}</p>
-              <p className="text-sm" style={{ color: '#111827' }}>{field.value}</p>
+              <p className="text-sm" style={{ color: '#1a1523' }}>{field.value}</p>
             </div>
           ))}
         </div>

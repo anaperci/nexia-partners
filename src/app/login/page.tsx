@@ -64,7 +64,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="border-gray-300 focus:border-[#46347F] focus:ring-[#46347F]"
-              style={{ background: '#f9fafb', color: '#111827' }}
+              style={{ background: '#f9fafb', color: '#1a1523' }}
             />
           </div>
           <div className="space-y-2">
@@ -77,7 +77,7 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               className="border-gray-300 focus:border-[#46347F] focus:ring-[#46347F]"
-              style={{ background: '#f9fafb', color: '#111827' }}
+              style={{ background: '#f9fafb', color: '#1a1523' }}
             />
           </div>
           <Button

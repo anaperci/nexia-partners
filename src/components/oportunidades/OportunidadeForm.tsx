@@ -120,14 +120,14 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName, du
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }))
   }
 
-  const inputStyle = { background: '#f9fafb', color: '#111827' }
+  const inputStyle = { background: '#f9fafb', color: '#1a1523' }
   const inputClass = "border-[#e5e7eb] focus:border-[#46347F]"
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl">
       {/* Parceiro com autocomplete */}
       <div className="space-y-2 relative">
-        <Label style={{ color: '#111827' }}>Parceiro *</Label>
+        <Label style={{ color: '#1a1523' }}>Parceiro *</Label>
         <Input
           value={form.parceiro_nome}
           onChange={(e) => {
@@ -148,7 +148,7 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName, du
                 key={p.id}
                 type="button"
                 className="w-full text-left px-3 py-2 hover:bg-gray-100 text-sm"
-                style={{ color: '#111827' }}
+                style={{ color: '#1a1523' }}
                 onClick={() => {
                   updateField("parceiro_nome", p.nome)
                   updateField("parceiro_id", p.id)
@@ -166,21 +166,21 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName, du
 
       {/* Título */}
       <div className="space-y-2">
-        <Label style={{ color: '#111827' }}>Título da Oportunidade *</Label>
+        <Label style={{ color: '#1a1523' }}>Título da Oportunidade *</Label>
         <Input value={form.titulo} onChange={(e) => updateField("titulo", e.target.value)} placeholder="Ex: Licitação de TI" className={inputClass} style={inputStyle} />
         {errors.titulo && <p className="text-xs text-red-400">{errors.titulo}</p>}
       </div>
 
       {/* Órgão/Empresa */}
       <div className="space-y-2">
-        <Label style={{ color: '#111827' }}>Órgão/Empresa Cliente *</Label>
+        <Label style={{ color: '#1a1523' }}>Órgão/Empresa Cliente *</Label>
         <Input value={form.orgao_empresa} onChange={(e) => updateField("orgao_empresa", e.target.value)} placeholder="Ex: Prefeitura Municipal" className={inputClass} style={inputStyle} />
         {errors.orgao_empresa && <p className="text-xs text-red-400">{errors.orgao_empresa}</p>}
       </div>
 
       {/* Registrado por */}
       <div className="space-y-2">
-        <Label style={{ color: '#111827' }}>Registrado por *</Label>
+        <Label style={{ color: '#1a1523' }}>Registrado por *</Label>
         <Input value={form.registrado_por} onChange={(e) => updateField("registrado_por", e.target.value)} className={inputClass} style={inputStyle} />
         {errors.registrado_por && <p className="text-xs text-red-400">{errors.registrado_por}</p>}
       </div>
@@ -188,12 +188,12 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName, du
       {/* Datas */}
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label style={{ color: '#111827' }}>Data de Registro *</Label>
+          <Label style={{ color: '#1a1523' }}>Data de Registro *</Label>
           <Input type="date" value={form.data_registro} onChange={(e) => updateField("data_registro", e.target.value)} className={inputClass} style={inputStyle} />
           {errors.data_registro && <p className="text-xs text-red-400">{errors.data_registro}</p>}
         </div>
         <div className="space-y-2">
-          <Label style={{ color: '#111827' }}>Data de Validade *</Label>
+          <Label style={{ color: '#1a1523' }}>Data de Validade *</Label>
           <Input type="date" value={form.data_validade} onChange={(e) => updateField("data_validade", e.target.value)} className={inputClass} style={inputStyle} />
           {errors.data_validade && <p className="text-xs text-red-400">{errors.data_validade}</p>}
         </div>
@@ -201,25 +201,25 @@ export function OportunidadeForm({ oportunidade, parceiros, userId, userName, du
 
       {/* Solução específica (opcional) */}
       <div className="space-y-2">
-        <Label style={{ color: '#111827' }}>Solução Específica <span style={{ color: '#6b7280' }}>(opcional)</span></Label>
+        <Label style={{ color: '#1a1523' }}>Solução Específica <span style={{ color: '#6b7280' }}>(opcional)</span></Label>
         <Input value={form.solucao_especifica} onChange={(e) => updateField("solucao_especifica", e.target.value)} placeholder="Ex: Software de gestão" className={inputClass} style={inputStyle} />
       </div>
 
       {/* Descrição (opcional) */}
       <div className="space-y-2">
-        <Label style={{ color: '#111827' }}>Descrição <span style={{ color: '#6b7280' }}>(opcional)</span></Label>
+        <Label style={{ color: '#1a1523' }}>Descrição <span style={{ color: '#6b7280' }}>(opcional)</span></Label>
         <Textarea value={form.descricao} onChange={(e) => updateField("descricao", e.target.value)} rows={3} className={inputClass} style={inputStyle} />
       </div>
 
       {/* Observações (opcional) */}
       <div className="space-y-2">
-        <Label style={{ color: '#111827' }}>Observações <span style={{ color: '#6b7280' }}>(opcional)</span></Label>
+        <Label style={{ color: '#1a1523' }}>Observações <span style={{ color: '#6b7280' }}>(opcional)</span></Label>
         <Textarea value={form.observacoes} onChange={(e) => updateField("observacoes", e.target.value)} rows={3} className={inputClass} style={inputStyle} />
       </div>
 
       {/* Botões */}
       <div className="flex gap-3 pt-4">
-        <Button type="button" variant="outline" onClick={() => router.back()} className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>
+        <Button type="button" variant="outline" onClick={() => router.back()} className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Voltar
         </Button>
         <Button type="submit" disabled={loading} style={{ background: '#46347F', color: '#fff' }}>

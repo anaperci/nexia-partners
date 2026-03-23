@@ -6,13 +6,13 @@ interface HeaderProps {
 
 export function Header({ title, description, children }: HeaderProps) {
   return (
-    <div className="flex items-center justify-between mb-8">
+    <div className="flex items-end justify-between mb-6">
       <div>
-        <h1 className="text-2xl font-bold" style={{ fontFamily: 'Syne, sans-serif', color: '#111827' }}>
+        <h1 className="text-[22px] font-bold tracking-[-0.03em] text-[#1a1523]" style={{ fontFamily: 'Syne, sans-serif' }}>
           {title}
         </h1>
         {description && (
-          <p className="text-sm mt-1" style={{ color: '#6b7280' }}>
+          <p className="text-[13px] text-[#9ca3af] mt-0.5">
             {description}
           </p>
         )}

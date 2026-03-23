@@ -52,24 +52,24 @@ export function PerfilClient({ profile }: { profile: UserProfile }) {
         <div className="space-y-2">
           <Label style={{ color: "#374151" }}>Nome completo *</Label>
           <Input value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })}
-            className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+            className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label style={{ color: "#374151" }}>Empresa</Label>
             <Input value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })}
-              className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+              className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
           </div>
           <div className="space-y-2">
             <Label style={{ color: "#374151" }}>Cargo</Label>
             <Input value={form.cargo} onChange={(e) => setForm({ ...form, cargo: e.target.value })}
-              className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+              className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
           </div>
         </div>
         <div className="space-y-2">
           <Label style={{ color: "#374151" }}>Telefone / WhatsApp</Label>
           <Input value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })}
-            placeholder="(00) 00000-0000" className="border-gray-300" style={{ background: "#f9fafb", color: "#111827" }} />
+            placeholder="(00) 00000-0000" className="border-gray-300" style={{ background: "#f9fafb", color: "#1a1523" }} />
         </div>
         <div className="space-y-2">
           <Label style={{ color: "#374151" }}>Segmentos de atuação</Label>

@@ -55,7 +55,7 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
     }
   }
 
-  const inputStyle = { background: '#f9fafb', color: '#111827' }
+  const inputStyle = { background: '#f9fafb', color: '#1a1523' }
   const inputClass = "border-[#e5e7eb] focus:border-[#46347F]"
 
   return (
@@ -70,23 +70,23 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
           </DialogTrigger>
           <DialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
             <DialogHeader>
-              <DialogTitle style={{ color: '#111827', fontFamily: 'Syne, sans-serif' }}>Cadastrar Parceiro</DialogTitle>
+              <DialogTitle style={{ color: '#1a1523', fontFamily: 'Syne, sans-serif' }}>Cadastrar Parceiro</DialogTitle>
             </DialogHeader>
             <form onSubmit={handleCreate} className="space-y-4 mt-4">
               <div className="space-y-2">
-                <Label style={{ color: '#111827' }}>Nome *</Label>
+                <Label style={{ color: '#1a1523' }}>Nome *</Label>
                 <Input value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} placeholder="Nome do parceiro" className={inputClass} style={inputStyle} />
               </div>
               <div className="space-y-2">
-                <Label style={{ color: '#111827' }}>Email</Label>
+                <Label style={{ color: '#1a1523' }}>Email</Label>
                 <Input value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} type="email" placeholder="email@exemplo.com" className={inputClass} style={inputStyle} />
               </div>
               <div className="space-y-2">
-                <Label style={{ color: '#111827' }}>Telefone</Label>
+                <Label style={{ color: '#1a1523' }}>Telefone</Label>
                 <Input value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })} placeholder="(00) 00000-0000" className={inputClass} style={inputStyle} />
               </div>
               <div className="space-y-2">
-                <Label style={{ color: '#111827' }}>Empresa</Label>
+                <Label style={{ color: '#1a1523' }}>Empresa</Label>
                 <Input value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} placeholder="Nome da empresa" className={inputClass} style={inputStyle} />
               </div>
               <Button type="submit" disabled={loading} className="w-full" style={{ background: '#46347F', color: '#fff' }}>
@@ -122,7 +122,7 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
               ) : (
                 parceiros.map((p) => (
                   <tr key={p.id} className="border-b hover:bg-gray-50 transition-colors" style={{ borderColor: '#e5e7eb' }}>
-                    <td className="p-4 font-medium" style={{ color: '#111827' }}>{p.nome}</td>
+                    <td className="p-4 font-medium" style={{ color: '#1a1523' }}>{p.nome}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{p.email || "—"}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{p.telefone || "—"}</td>
                     <td className="p-4" style={{ color: '#6b7280' }}>{p.empresa || "—"}</td>
@@ -140,13 +140,13 @@ export function ParceirosClient({ parceiros }: { parceiros: Parceiro[] }) {
                         </AlertDialogTrigger>
                         <AlertDialogContent style={{ background: '#ffffff', borderColor: '#e5e7eb' }}>
                           <AlertDialogHeader>
-                            <AlertDialogTitle style={{ color: '#111827' }}>Confirmar exclusão</AlertDialogTitle>
+                            <AlertDialogTitle style={{ color: '#1a1523' }}>Confirmar exclusão</AlertDialogTitle>
                             <AlertDialogDescription style={{ color: '#6b7280' }}>
                               Excluir parceiro &quot;{p.nome}&quot;? As oportunidades vinculadas não serão excluídas.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#111827', background: 'transparent' }}>Cancelar</AlertDialogCancel>
+                            <AlertDialogCancel className="border-[#e5e7eb]" style={{ color: '#1a1523', background: 'transparent' }}>Cancelar</AlertDialogCancel>
                             <AlertDialogAction onClick={() => handleDelete(p.id)} style={{ background: '#ef4444', color: '#fff' }}>Excluir</AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>
