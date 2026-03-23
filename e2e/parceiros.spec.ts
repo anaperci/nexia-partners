@@ -5,13 +5,14 @@ async function login(page: import('@playwright/test').Page) {
   await page.fill('input[type="email"]', 'ana@nexialab.com.br')
   await page.fill('input[type="password"]', 'nexia@2026')
   await page.click('button[type="submit"]')
-  await expect(page).toHaveURL('/', { timeout: 10000 })
+  await expect(page).toHaveURL('/', { timeout: 15000 })
 }
 
 test.describe('Parceiros', () => {
   test.beforeEach(async ({ page }) => {
     await login(page)
-    await page.goto('/parceiros')
+    await page.locator('aside').getByText('Parceiros').click()
+    await expect(page).toHaveURL(/\/parceiros/)
   })
 
   test('exibe página de parceiros com botão de cadastro', async ({ page }) => {

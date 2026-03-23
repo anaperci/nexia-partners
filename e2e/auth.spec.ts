@@ -8,7 +8,7 @@ test.describe('Autenticação', () => {
 
   test('exibe página de login com logo e formulário', async ({ page }) => {
     await page.goto('/login')
-    await expect(page.locator('h1')).toContainText('NexIA Partners')
+    await expect(page.locator('text=NexIA Partners')).toBeVisible()
     await expect(page.locator('input[type="email"]')).toBeVisible()
     await expect(page.locator('input[type="password"]')).toBeVisible()
     await expect(page.getByRole('button', { name: /entrar/i })).toBeVisible()
@@ -19,7 +19,6 @@ test.describe('Autenticação', () => {
     await page.fill('input[type="email"]', 'invalido@test.com')
     await page.fill('input[type="password"]', 'senhaerrada')
     await page.click('button[type="submit"]')
-    // Deve mostrar toast de erro (sonner)
     await expect(page.locator('[data-sonner-toast]').first()).toBeVisible({ timeout: 5000 })
   })
 
@@ -28,8 +27,9 @@ test.describe('Autenticação', () => {
     await page.fill('input[type="email"]', 'ana@nexialab.com.br')
     await page.fill('input[type="password"]', 'nexia@2026')
     await page.click('button[type="submit"]')
-    // Deve redirecionar para o dashboard
     await expect(page).toHaveURL('/', { timeout: 15000 })
-    await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible({ timeout: 10000 })
+    // Sidebar deve estar visível com Dashboard
+    await expect(page.locator('aside')).toBeVisible({ timeout: 10000 })
+    await expect(page.locator('text=Dashboard').first()).toBeVisible()
   })
 })

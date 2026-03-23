@@ -5,7 +5,7 @@ import { OportunidadePDTICard } from "./OportunidadePDTICard"
 import { formatDate } from "@/lib/utils"
 import { getStatsOportunidades, getOportunidadesRecentes, getTopParceiros, getAlertasVencendo } from "@/lib/queries/oportunidades"
 import { getOportunidadesPDTI } from "@/lib/queries/pdti"
-import { FileText, CheckCircle, AlertTriangle, XCircle, Users, Sparkles, Plus } from "lucide-react"
+import { Sparkles, Plus, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageTransition } from "@/components/ui/page-transition"
 import type { UserProfile } from "@/lib/types"
@@ -40,19 +40,19 @@ export async function DashboardNexia({ profile }: { profile: UserProfile }) {
 
       {/* Métricas — linha 1: 3 colunas */}
       <div className="grid grid-cols-3 gap-2 mb-2">
-        <MetricCard label="Total" value={stats.total} sublabel="oportunidades" icon={FileText}
+        <MetricCard label="Total" value={stats.total} sublabel="oportunidades" iconName="FileText"
           iconBg="bg-[#f0edf8]" iconColor="text-[#46347F]" />
-        <MetricCard label="Ativas" value={stats.ativas} sublabel="em vigor" icon={CheckCircle}
+        <MetricCard label="Ativas" value={stats.ativas} sublabel="em vigor" iconName="CheckCircle"
           iconBg="bg-[#eaf3de]" iconColor="text-[#3b6d11]" valueColor="text-[#3b6d11]" />
-        <MetricCard label="Vencendo" value={stats.vencendo} sublabel="próximos 15 dias" icon={AlertTriangle}
+        <MetricCard label="Vencendo" value={stats.vencendo} sublabel="próximos 15 dias" iconName="AlertTriangle"
           iconBg="bg-[#faeeda]" iconColor="text-[#854f0b]" valueColor="text-[#854f0b]" />
       </div>
 
       {/* Métricas — linha 2: 2 colunas */}
       <div className="grid grid-cols-2 gap-2 mb-5">
-        <MetricCard label="Expiradas" value={stats.expiradas} sublabel="encerradas" icon={XCircle}
+        <MetricCard label="Expiradas" value={stats.expiradas} sublabel="encerradas" iconName="XCircle"
           iconBg="bg-[#fcebeb]" iconColor="text-[#a32d2d]" valueColor="text-[#a32d2d]" />
-        <MetricCard label="Parceiros" value={topParceiros.length} sublabel="ativos" icon={Users}
+        <MetricCard label="Parceiros" value={topParceiros.length} sublabel="ativos" iconName="Users"
           iconBg="bg-[#e6f1fb]" iconColor="text-[#185fa5]" valueColor="text-[#185fa5]" />
       </div>
 
