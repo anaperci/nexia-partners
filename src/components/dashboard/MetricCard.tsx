@@ -2,9 +2,9 @@
 
 import { cn } from "@/lib/utils"
 import { AnimatedNumber } from "@/components/ui/animated-number"
-import { FileText, CheckCircle, AlertTriangle, XCircle, Users } from "lucide-react"
+import { FileText, CheckCircle, AlertTriangle, XCircle, Users, type LucideIcon } from "lucide-react"
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   FileText, CheckCircle, AlertTriangle, XCircle, Users,
 }
 
