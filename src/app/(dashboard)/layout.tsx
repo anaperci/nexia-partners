@@ -1,5 +1,5 @@
 import { createServerSupabaseClient } from "@/lib/supabase-server"
-import { TopNav } from "@/components/layout/TopNav"
+import { Sidebar } from "@/components/layout/Sidebar"
 import { getUserProfile } from "@/lib/auth"
 
 export default async function DashboardLayout({
@@ -14,7 +14,7 @@ export default async function DashboardLayout({
   const userName = profile?.nome || user?.user_metadata?.name || user?.email?.split("@")[0] || "Usuário"
   const userEmail = user?.email || ""
 
-  // Contar oportunidades vencendo (filtrar por parceiro se for perfil parceiro)
+  // Contar oportunidades vencendo
   let vencendoQuery = supabase.from("oportunidades").select("id").eq("status", "vencendo")
   if (profile?.perfil === "parceiro" && profile.parceiro_id) {
     vencendoQuery = vencendoQuery.eq("parceiro_id", profile.parceiro_id)
@@ -22,14 +22,14 @@ export default async function DashboardLayout({
   const { data: vencendo } = await vencendoQuery
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: '#f4f3f8' }}>
-      <TopNav
+    <div className="min-h-screen" style={{ background: '#f4f3f8' }}>
+      <Sidebar
         userName={userName}
         userEmail={userEmail}
         vencendoCount={vencendo?.length || 0}
         perfil={profile?.perfil || 'nexia'}
       />
-      <main className="flex-1 px-6 py-6 max-w-[1400px] mx-auto w-full">
+      <main className="ml-[240px] px-8 py-6 max-w-[1400px]">
         {children}
       </main>
     </div>
